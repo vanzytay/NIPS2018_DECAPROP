@@ -24,8 +24,7 @@ c, q, ff = bidirectional_attention_connector(
 
 ### Prep Scripts
 
-You may find them at `./prep/` where datasets such as Squad, NewsQA, SearchQA and Quasar are found. Many of our pre-processing scripts reference https://github.com/nusnlp/amanda.
-
+You may find them at `./prep/` where datasets such as Squad, NewsQA, SearchQA and Quasar are found. Many of our pre-processing scripts reference https://github.com/nusnlp/amanda. Please make a directory named `./corpus/` (for hosting raw datasets) and `./datasets/` for hosting prep-ed files. The key idea is that we prep the dataset into an `env.gz` file for training/evaluation.
 
 ## Notes and Disclaimer
 
@@ -62,5 +61,5 @@ If you find our repository useful, please cite our paper:
 
 Several useful code bases we used in our work:
 
-1. https://github.com/HKUST-KnowComp/R-
+1. https://github.com/HKUST-KnowComp/R-Net (for cudnn RNNs and base R-NET model)
 2. https://github.com/nusnlp/amanda (thanks for the evaluators and preprocessors which were useful!)
