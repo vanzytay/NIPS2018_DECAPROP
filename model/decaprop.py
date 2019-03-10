@@ -24,18 +24,12 @@ import datetime
 from tylib.lib.seq_op import *
 from tylib.lib.nn import *
 from tylib.lib.att_op import *
-from tylib.lib.loss import *
 from tylib.lib.rnn import *
 from tylib.lib.compose_op import *
 from tylib.lib.cnn import *
 from tylib.models.base_model import BaseModel
 from tylib.lib.sim_op import *
-from tylib.lib.stat import *
-from tylib.lib.rec_op import *
-from tylib.lib.enhanced import *
-from tylib.lib.choice import *
 from tylib.exp.multi_gpu import *
-from tylib.lib.bimpm import *
 from tylib.exp.utilities import *
 from tylib.lib.func import *
 
@@ -69,15 +63,15 @@ def build_deca_prop(self, c, q, c_len, q_len, cmask, qmask,
             q = rnn(q, seq_len=q_len, var_drop=self.args.var_drop)
             couts.append(c)
             qouts.append(q)
-            # this should be optional. 
-            c, q, ff = bidirectional_attention_connector(
-                        c, q, c_len, q_len,
-                        None, None,
-                        mask_a=cmask, mask_b=qmask,
-                        initializer=self.init,
-                        factor=self.args.factor, factor2=32,
-                        name='enccafe{}'.format(i))
-            aggr.append(ff[0])
+            # this should be optional.
+            # c, q, ff = bidirectional_attention_connector(
+            #             c, q, c_len, q_len,
+            #             None, None,
+            #             mask_a=cmask, mask_b=qmask,
+            #             initializer=self.init,
+            #             factor=self.args.factor, factor2=32,
+            #             name='enccafe{}'.format(i))
+            # aggr.append(ff[0])
 
     last_q = q
     c = tf.concat(couts, 2)
